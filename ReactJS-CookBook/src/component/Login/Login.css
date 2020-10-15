@@ -1,0 +1,10 @@
+.jumboContainer{
+  width: 38%;
+  margin-top: 13%;
+  margin-left: 30%;
+  background-color: rebeccapurple !important;
+}
+
+.textLabelActive {
+  color: white;
+}

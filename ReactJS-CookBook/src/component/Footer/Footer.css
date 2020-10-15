@@ -1,0 +1,14 @@
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  color: white !important;
+  background-color: rebeccapurple;
+  color: black;
+  text-align: center;
+}
+
+.copyright_label{
+  margin-top: 9px;
+}
