@@ -30,7 +30,7 @@ class NavigationBar extends Component {
   <Navbar.Collapse id="basic-navbar-nav">
     <Nav className="mr-auto" defaultActiveKey="#basic">
       <Nav.Link href="#basic">Basic</Nav.Link>
-      <Nav.Link href="#redux">Redux</Nav.Link>
+      <Nav.Link href="/redux">Redux</Nav.Link>
       <Nav.Link href="/ifsc">IFSC</Nav.Link>
     </Nav>
 

@@ -5,9 +5,10 @@ import {
   Switch
 } from 'react-router-dom';
 import Login from '../component/Login/Login';
-import Home from '../component/Home/Home'
-import IFSC from '../component/IFSC/IFSC'
-import RegisterUser from '../component/RegisterUser/Register'
+import Home from '../component/Home/Home';
+import IFSC from '../component/IFSC/IFSC';
+import Redux from '../component/Redux/Redux';
+import RegisterUser from '../component/RegisterUser/Register';
 
 const routes = () => (
   <BrowserRouter>
@@ -16,6 +17,7 @@ const routes = () => (
       <Route path="/home" component={Home}></Route>
       <Route path="/register" component={RegisterUser}></Route>
       <Route path="/ifsc" component={IFSC}></Route>
+      <Route path="/redux" component={Redux}></Route>
     </Switch>
   </BrowserRouter>
 );
