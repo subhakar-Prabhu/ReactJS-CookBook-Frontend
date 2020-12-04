@@ -1,17 +1,20 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
+import CustomInput from './CustomInput';
 
+const onSubmit = (values) => {
+  console.log('Submitting Values:', values);
+}
 const SimpleForm = props => {
   const { handleSubmit, pristine, reset, submitting } = props
   return (
-    <form onSubmit={handleSubmit}>
+    <form>
       <div>
         <label>First Name</label>
         <div>
           <Field
             name="firstName"
-            component="input"
-            type="text"
+            component={CustomInput}
             placeholder="First Name"
           />
         </div>
@@ -84,7 +87,7 @@ const SimpleForm = props => {
         </div>
       </div>
       <div>
-        <button type="submit" disabled={pristine || submitting}>
+        <button type="submit" onClick={handleSubmit(onSubmit)} disabled={pristine || submitting}>
           Submit
         </button>
         <button type="button" disabled={pristine || submitting} onClick={reset}>
