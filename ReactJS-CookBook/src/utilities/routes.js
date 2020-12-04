@@ -8,6 +8,7 @@ import Login from '../component/Login/Login';
 import Home from '../component/Home/Home';
 import IFSC from '../component/IFSC/IFSC';
 import Redux from '../component/Redux/Redux';
+import SimpleForm from '../component/Form/SimpleForm';
 import RegisterUser from '../component/RegisterUser/Register';
 
 const routes = () => (
@@ -18,6 +19,7 @@ const routes = () => (
       <Route path="/register" component={RegisterUser}></Route>
       <Route path="/ifsc" component={IFSC}></Route>
       <Route path="/redux" component={Redux}></Route>
+      <Route path="/form" component={SimpleForm}></Route>
     </Switch>
   </BrowserRouter>
 );

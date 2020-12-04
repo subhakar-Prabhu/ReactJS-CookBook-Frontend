@@ -5,8 +5,8 @@ import './NavigationBar.css';
 import { Navbar, Nav, Form, FormControl, Button } from 'react-bootstrap';
 
 class NavigationBar extends Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
       redirect: false
     };
@@ -25,14 +25,15 @@ class NavigationBar extends Component {
     return (
       <Router>
         <Navbar expand="lg" className="navigationbar">
-  <Navbar.Brand href="/home">React-Demo</Navbar.Brand>
-  <Navbar.Toggle aria-controls="basic-navbar-nav" />
-  <Navbar.Collapse id="basic-navbar-nav">
-    <Nav className="mr-auto" defaultActiveKey="#basic">
-      <Nav.Link href="#basic">Basic</Nav.Link>
-      <Nav.Link href="/redux">Redux</Nav.Link>
-      <Nav.Link href="/ifsc">IFSC</Nav.Link>
-    </Nav>
+          <Navbar.Brand href="/home">React-Demo</Navbar.Brand>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Collapse id="basic-navbar-nav">
+        <Nav className="mr-auto" defaultActiveKey="#basic">
+          <Nav.Link href="#basic">Basic</Nav.Link>
+          <Nav.Link href="/redux">Redux</Nav.Link>
+          <Nav.Link href="/ifsc">IFSC</Nav.Link>
+          <Nav.Link href="/form">Simple Form</Nav.Link>
+        </Nav>
 
     <Form inline>
       <FormControl type="text" placeholder="Search" className="mr-sm-2" />

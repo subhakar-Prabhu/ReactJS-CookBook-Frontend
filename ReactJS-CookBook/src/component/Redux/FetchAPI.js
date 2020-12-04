@@ -24,7 +24,7 @@ class FetchAPI extends Component {
     return(
       <div>
         <button onClick={this.getData}>Get Data</button>
-        {/* <button onClick={this.props.removeData}>Remove Data</button> */}
+        <button onClick={this.props.removeData}>Remove Data</button>
         {this.props.data.map((x,i) => <div key={i}> {x.title} </div>)}
       </div>
     )
@@ -42,7 +42,7 @@ const mapDispatchToProps = (dispatch) => {
     setData: (data) => {
       dispatch({type: 'setData', data});
     },
-    removeData: (data) => {
+    removeData: () => {
       dispatch({type: 'removeData'})
     }
   }

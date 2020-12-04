@@ -1,4 +1,6 @@
 import * as redux from 'redux';
+import thunk from 'redux-thunk';
+import {reducer as formReducer} from 'redux-form';
 
 //Actions
 export const COUNTER_INCREMENT = 'counter/increment';
@@ -57,8 +59,9 @@ const dataReducer = (state = {data: null}, action) => {
 const rootReducer = redux.combineReducers({
   counter: countReducer,
   tester: testReducer,
-  storage: dataReducer
+  storage: dataReducer,
+  form: formReducer
 });
 
-const store = redux.createStore(rootReducer);
+const store = redux.createStore(rootReducer, redux.applyMiddleware(thunk));
 export default store;
