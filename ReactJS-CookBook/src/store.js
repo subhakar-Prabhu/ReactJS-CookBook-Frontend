@@ -40,11 +40,25 @@ const testReducer = (state = [], action) => {
   }
 }
 
-const rootReducer = (state = [], action) => {
-  return{
-    counter: countReducer(state.counter, action),
-    tester: testReducer(state.tester, action)
+const dataReducer = (state = {data: null}, action) => {
+  switch (action.type) {
+    case 'setData': {
+      return {data: action.data};
+    }
+    case 'removeData': {
+      return {data: null};
+    }
+    default: {
+      return state;
+    }
   }
 }
+
+const rootReducer = redux.combineReducers({
+  counter: countReducer,
+  tester: testReducer,
+  storage: dataReducer
+});
+
 const store = redux.createStore(rootReducer);
 export default store;

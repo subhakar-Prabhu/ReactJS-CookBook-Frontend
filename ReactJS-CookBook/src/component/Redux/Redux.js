@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import './Redux.css';
 import Footer from '../Footer/Footer'
 import NavigationBar from "../NavigationBar/NavigationBar";
+import FetchAPI from "../Redux/FetchAPI";
+import { Provider } from 'react-redux';
 import store, { COUNTER_DECREMENT, COUNTER_INCREMENT } from '../../store';
 
 class Redux extends Component {
@@ -33,10 +35,10 @@ class Redux extends Component {
 
   render(){
     return(
+      <Provider store={store}>
       <div>
         <NavigationBar />
-        Redux
-
+        <FetchAPI/>
         <button onClick={this.increment}>Increment</button>
         <button onClick={this.decrement}>Decrement</button>
 
@@ -45,6 +47,7 @@ class Redux extends Component {
 
         <Footer />
       </div>
+      </Provider>
     )
   }
 }
