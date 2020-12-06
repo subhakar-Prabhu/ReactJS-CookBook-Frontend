@@ -1,21 +1,28 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 import CustomInput from './CustomInput';
+import validators from '../../utilities/validators';
 
 const onSubmit = (values) => {
   console.log('Submitting Values:', values);
 }
+
+const formValidators = {
+  firstName: validators.required('firsname is not found'),
+  lastName: [validators.required('last name needed'), validators.maxLength(5)]
+}
+
 const SimpleForm = props => {
   const { handleSubmit, pristine, reset, submitting } = props
   return (
-    <form>
+    <div>
       <div>
         <label>First Name</label>
         <div>
           <Field
             name="firstName"
             component={CustomInput}
-            placeholder="First Name"
+            validate={formValidators.firstName}
           />
         </div>
       </div>
@@ -24,9 +31,9 @@ const SimpleForm = props => {
         <div>
           <Field
             name="lastName"
-            component="input"
-            type="text"
-            placeholder="Last Name"
+            component={CustomInput}
+            allowPattern="^[a-zA-Z]*$"
+            validate={formValidators.lastName}
           />
         </div>
       </div>
@@ -45,16 +52,22 @@ const SimpleForm = props => {
         <label>Sex</label>
         <div>
           <label>
-            <Field name="sex" component="input" type="radio" value="male" />{' '}
+            <Field
+              name="sex"
+              component="input"
+              type="radio"
+              value="male"
+            />{' '}
             Male
           </label>
           <label>
-            <Field name="sex" component="input" type="radio" value="female" />{' '}
+            <Field
+              name="sex"
+              component="input"
+              type="radio"
+              value="female"
+            />{' '}
             Female
-          </label>
-          <label>
-            <Field name="sex" component="input" type="radio" value="other" />{' '}
-            Other
           </label>
         </div>
       </div>
@@ -94,10 +107,24 @@ const SimpleForm = props => {
           Clear Values
         </button>
       </div>
-    </form>
+    </div>
   )
 }
 
+// const validate = (values) => {
+//   const errors = {};
+//   if (!values.firstName) {
+//     errors.firstName = 'first name is required';
+//   }
+//   if (!values.lastName) {
+//     errors.lastName = 'Last name is mandatory';
+//   } else if (values.lastName.length < 5) {
+//     errors.lastName = 'Minimum 5 char required';
+//   }
+//   return errors;
+// }
+
 export default reduxForm({
-  form: 'simple' // a unique identifier for this form
+  form: 'simple', // a unique identifier for this form
+  //validate
 })(SimpleForm)
