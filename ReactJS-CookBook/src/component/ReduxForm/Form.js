@@ -12,7 +12,7 @@ const formValidators = {
   lastName: [validators.required('last name needed'), validators.maxLength(5)]
 }
 
-const ReduxForm = props => {
+const SimpleForm = props => {
   const { handleSubmit, pristine, reset, submitting } = props
   return (
     <div>
@@ -127,4 +127,4 @@ const ReduxForm = props => {
 export default reduxForm({
   form: 'simple', // a unique identifier for this form
   //validate
-})(ReduxForm)
+})(SimpleForm)

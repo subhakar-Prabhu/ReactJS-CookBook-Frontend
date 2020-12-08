@@ -32,7 +32,8 @@ class NavigationBar extends Component {
           <Nav.Link href="#basic">Basic</Nav.Link>
           <Nav.Link href="/redux">Redux</Nav.Link>
           <Nav.Link href="/ifsc">IFSC</Nav.Link>
-          <Nav.Link href="/form">Redux Form</Nav.Link>
+          <Nav.Link href="/reduxForm">Redux Form</Nav.Link>
+          <Nav.Link href="/reactForm">React Form</Nav.Link>
         </Nav>
 
     <Form inline>
