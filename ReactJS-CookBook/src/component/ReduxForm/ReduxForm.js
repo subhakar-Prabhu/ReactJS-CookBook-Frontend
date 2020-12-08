@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 import NavigationBar from "../NavigationBar/NavigationBar";
 import store from '../../store';
 
-class SimpleForm extends Component {
+class ReduxForm extends Component {
   constructor() {
     super();
     this.state = {
@@ -25,4 +25,4 @@ class SimpleForm extends Component {
   }
 }
 
-export default SimpleForm;
+export default ReduxForm;

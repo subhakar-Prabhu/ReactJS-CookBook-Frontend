@@ -3,7 +3,7 @@ const validators = {
     value => (value || typeof value === 'number' ? undefined : message),
   maxLength: (max) =>
     (value, formValues, instanceRef, fieldName) => {
-      console.log(value, formValues, instanceRef, fieldName);
+      console.log('Print Values for max length:', value, formValues, instanceRef, fieldName);
       return value && value.length > max ? `Must be ${max} characters or less` : undefined
     }
 }
