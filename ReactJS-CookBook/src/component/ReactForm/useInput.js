@@ -10,7 +10,6 @@ const useInput = initialValue => {
     bind: {
       value,
       onChange: event => {
-        console.log('event:', event);
         setValue(event);
       }
     }
