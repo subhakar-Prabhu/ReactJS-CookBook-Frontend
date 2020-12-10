@@ -11,7 +11,6 @@ export class Validators {
           const result = regex.email.test(value);
           if (!result) return { error: true, message };
       }
-      // return false;
   }
 
   static required(value, message) {

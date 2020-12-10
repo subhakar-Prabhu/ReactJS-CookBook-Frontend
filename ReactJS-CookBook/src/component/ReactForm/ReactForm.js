@@ -1,92 +1,47 @@
-import React, { useState } from 'react';
-import InputField from "./InputField.js";
+import React from 'react';
+import useInput  from './useInput';
+import InputField from "./InputField";
+import { Validators } from "./validateInput";
 
-const ReactForm = () => {
-
-  const [text, getText] = useState('');
-
-  const handleChange = (key) => (value) => {
-    console.log('key', key);
-    console.log('value', value);
-
-    // this.setState({[key]: value});
-  };
-
+export default function NameForm(props) {
+  const { value:firstName, bind:bindFirstName, reset:resetFirstName } = useInput('');
+  const { value:lastName, bind:bindLastName, reset:resetLastName } = useInput('');
+  
+  const handleSubmit = (evt) => {
+      evt.preventDefault();
+      alert(`Submitting Name ${firstName} ${lastName}`);
+      resetFirstName();
+      resetLastName();
+  }
   return (
-    <div className='form-content-right'>
-      <form className='form' noValidate>
-        <h1>
-          Get started with us today! Create your account by filling out the
-          information below.
-        </h1>
-
-        <div className='form-inputs'>
-          <label className='form-label'>Username</label>
-          <InputField
-                    value={text}
+    <form onSubmit={handleSubmit}>
+      <label>
+        First Name:
+        {/* <input type="text" {...bindFirstName} /> */}
+        <InputField
+                    
                     type='text'
-                    name='username'
+                    {...bindFirstName}
                     placeholder='Enter text here...'
-                    onChange={handleChange('text')}/>
-          {/* <input
-            className='form-input'
-            type='text'
-            name='username'
-            placeholder='Enter your username'
-            value={values.username}
-            onChange={handleChange}
-          /> */}
-          {/* {errors.username && <p>{errors.username}</p>} */}
-        </div>
-
-        {/* <div className='form-inputs'>
-          <label className='form-label'>Email</label>
-          <input
-            className='form-input'
-            type='email'
-            name='email'
-            placeholder='Enter your email'
-            value={values.email}
-            onChange={handleChange}
-          />
-          {errors.email && <p>{errors.email}</p>}
-        </div> */}
-
-        {/* <div className='form-inputs'>
-          <label className='form-label'>Password</label>
-          <input
-            className='form-input'
-            type='password'
-            name='password'
-            placeholder='Enter your password'
-            value={values.password}
-            onChange={handleChange}
-          />
-          {errors.password && <p>{errors.password}</p>}
-        </div> */}
-
-        {/* <div className='form-inputs'>
-          <label className='form-label'>Confirm Password</label>
-          <input
-            className='form-input'
-            type='password'
-            name='password2'
-            placeholder='Confirm your password'
-            value={values.password2}
-            onChange={handleChange}
-          />
-          {errors.password2 && <p>{errors.password2}</p>}
-        </div> */}
-
-        {/* <button className='form-input-btn' type='submit'>
-          Sign up
-        </button>
-        <span className='form-input-login'>
-          Already have an account? Login <a href='http://www.google.com'>here</a>
-        </span> */}
-      </form>
-    </div>
+                    validators={[
+                        {check: Validators.required, message: 'This field is required'}
+                    ]}
+                    />
+      </label>
+      <label>
+        Last Name:
+        {/* <input type="text" {...bindLastName} /> */}
+        <InputField
+                    
+                    type='text'
+                    {...bindLastName}
+                    placeholder='Enter text here...'
+                    // validators={[
+                    //     {check: Validators.required, message: 'This field is required'}
+                    // ]}
+                    />
+      </label>
+      <input type="submit" value="Submit" />
+    </form>
   );
-};
-
-export default ReactForm;
+}
